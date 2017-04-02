@@ -60,7 +60,7 @@ $query_array = array(
 $db->update($query_array);
 ```
 ### 5. Select Query
-Select all from table blog by id
+Select all from table blog by id.
 ```
 $query_array = array(
     'field' => '*',
@@ -70,7 +70,7 @@ $query_array = array(
 );
 $data = $db->select($query_array);
 ```
-Full properties of select query.
+Here are the full properties of select query.
 ```
 $query_array = array(
     'field' => '*',
@@ -99,7 +99,7 @@ $data = $db->select($query_array);
 $query_array['bind'] = array("movieId" => 3);
 $data = $db->select($query_array);
 ```
-The results of select statment will be returned as array with fields' names as array keys and values as array values.
+The results of select statement will be returned as array with fields' names as array keys and values as array values.
 ```
 $query_array = array(
     'field' => 'id, title',
