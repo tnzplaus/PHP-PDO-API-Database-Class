@@ -1,19 +1,24 @@
 # PHP-PDO-API-Database-Class
 PDODb.php is a simple PHP PDO API wraper with prepared statements
 
-1. Installation
-To utilize this class, first import db.class.php into your project, and require it.
+## Getting Started
 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### 1. Installation
+To utilize this class, first import db.class.php into your project, and require it.
+```
 require_once('PDODb.class.php');                   
- 
+```
 2. Initialization
 Simple initialization with utf8 charset set by default:
 
+```
 $db = new PDODb('host', 'username', 'password', 'databaseName']);          
- 
-3. Insert Query
+```
+### 3. Insert Query
 Simple example
-
+```
 $bind = array('fname' => 'Tarek', 'lname' => 'Abdel Aziz', 
 		'email' => 'tarek@aucegypt.edu');
 $query_array = array(
@@ -22,12 +27,13 @@ $query_array = array(
     'bind' => $bind
 );
 $lastInsertID = $db->insert($query_array);
+```
 Note that the method $db->insert() returns the Id of the last inserted query.
 
 And all queries are represented as arrays.
 
 Insert multiple datasets at once
-
+```
 $bind = array();
 foreach($_POST['country'] as $countryId){
     $bind += array("cityId".$countryId => $cityId);
@@ -40,10 +46,10 @@ $query_array = array(
     'bind' => $bind
 );
 $lastInsertID = $db->insert($query_array);
- 
-4. Update Query
+```
+### 4. Update Query
 Update multiple columns.
-
+```
 $bind = array('id' => 4, 'fname' => 'Tarek', 'lname' => 'Nabil', 
 		'email' => 'tarek@aucegypt.edu');
 $query_array = array(
@@ -53,10 +59,10 @@ $query_array = array(
     'bind' => $bind
 );
 $db->update($query_array);
- 
-5. Select Query
+```
+### 5. Select Query
 All queries are represented as arrays.
-
+```
 $query_array = array(
     'field' => '*',
     'from' => '`blog`',
@@ -64,8 +70,9 @@ $query_array = array(
     'bind' => array("id" => $blog_id)
 );
 $data = $db->select($query_array);
+```
 Full select query property.
-
+```
 $query_array = array(
     'field' => '*',
     'from' => '`movie` INNER JOIN `movie_genre`',
@@ -77,8 +84,9 @@ $query_array = array(
     'bind' => array("genreId" => $genreId)
 );
 $data = $db->select($query_array);
+```
 You don't need to write the whole query again.
-
+```
 $query_array = array(
     'field' => '*',
     'from' => '`movie`',
@@ -91,8 +99,9 @@ $query_array = array(
     'bind' => array("movieId" => 3)
 );
 $data = $db->select($query_array);
+```
 The return array of select statment will look as follows.
-
+```
 $query_array = array(
     'field' => 'id, title',
     'from' => '`song`',
@@ -101,7 +110,7 @@ $query_array = array(
 );
 $songs = $db->select($query_array);
 print_r($data);
-	
+
 /*---------- OUTPUT ----------*/
 
 Array ( [0] => Array ( [id] => 1 [title] => Shape Of You )
@@ -110,20 +119,20 @@ Array ( [0] => Array ( [id] => 1 [title] => Shape Of You )
         [3] => Array ( [id] => 4 [title] => September Song ) 
         [4] => Array ( [id] => 5 [title] => Chained To The Rhythm ) 
       )
- 
-6. Delete Query
+```
+### 6. Delete Query
 All queries are represented as arrays.
-
+```
 $query_array = array(
     'from' => '`user`',
     'where' => '`userId` = :id',
     'bind' => array('id' => 15)
 );
 $db->delete($query_array);
- 
-7. Exist Query
+```
+### 7. Exist Query
 All queries are represented as arrays.
-
+```
 $query_array = array(
     'from' => '`cast`',
     'where' => 'name = :name',
@@ -134,10 +143,10 @@ if($db->exists($query_array)){
 }else{
 	// record dosn't exist
 }
- 
-8. Print Query
+```
+### 8. Print Query
 You can print query to test it againest errors by setting $db->setPrintQuery(true) to true.
-
+```
 $query_array = array(
     'field' => '*',
     'from' => '`album`',
@@ -155,6 +164,8 @@ SELECT * From `album` WHERE `genre` = :genre ORDER BY `id` DESC
 
 Bind Array:
 Array ( [cat] => Jazz ) 
- 
+```
 9. Close Connection
+```
 $db->destruct();
+```
