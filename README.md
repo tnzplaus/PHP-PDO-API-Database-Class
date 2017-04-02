@@ -29,9 +29,7 @@ $query_array = array(
 );
 $lastInsertID = $db->insert($query_array);
 ```
-Note that the method $db->insert() returns the Id of the last inserted query.
-
-And all queries are represented as arrays.
+Note that the method $db->insert() returns the Id of the last inserted query and all queries are represented as arrays.
 
 Insert multiple datasets at once
 ```
@@ -62,7 +60,7 @@ $query_array = array(
 $db->update($query_array);
 ```
 ### 5. Select Query
-All queries are represented as arrays.
+Select all from table blog by id
 ```
 $query_array = array(
     'field' => '*',
@@ -72,7 +70,7 @@ $query_array = array(
 );
 $data = $db->select($query_array);
 ```
-Full select query property.
+Full properties of select query.
 ```
 $query_array = array(
     'field' => '*',
@@ -96,12 +94,12 @@ $query_array = array(
 );
 $data = $db->select($query_array);
 
-$query_array = array(
-    'bind' => array("movieId" => 3)
-);
+// just edit bind value
+
+$query_array['bind'] = array("movieId" => 3);
 $data = $db->select($query_array);
 ```
-The return array of select statment will look as follows.
+The results of select statment will be returned as array with fields' names as array keys and values as array values.
 ```
 $query_array = array(
     'field' => 'id, title',
@@ -164,7 +162,7 @@ Query:
 SELECT * From `album` WHERE `genre` = :genre ORDER BY `id` DESC 
 
 Bind Array:
-Array ( [cat] => Jazz ) 
+Array ( [genre] => Jazz ) 
 ```
 9. Close Connection
 ```
