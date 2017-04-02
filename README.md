@@ -3,10 +3,11 @@ PDODb.php is a simple PHP PDO API wraper with prepared statements
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+I wrote my own class that saved my time and let me write quiries effeciently and quickly. These instructions will help you use my class for the basic purposes.
+For more projects check my website [TarekNabil.com](http://www.tareknabil.com)
 
 ### 1. Installation
-To utilize this class, first import db.class.php into your project, and require it.
+To utilize this class, first import PDODb.class.php into your project, and require it.
 ```
 require_once('PDODb.class.php');                   
 ```
