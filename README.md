@@ -3,7 +3,7 @@ PDODb.php is a simple PHP PDO API wraper with prepared statements
 
 ## Getting Started
 
-I wrote my own class that saved my time and let me write quiries effeciently and quickly. These instructions will help you use my class for the basic purposes.
+I wrote my own classes that saved my time and let me write queries efficiently and quickly. The following instructions will help you use my class for the basic purposes.
 For more projects check my website [TarekNabil.com](http://www.tareknabil.com)
 
 ### 1. Installation
@@ -144,7 +144,7 @@ if($db->exists($query_array)){
 }
 ```
 ### 8. Print Query
-You can print query to test it againest errors by setting $db->setPrintQuery(true) to true.
+You can print query to test it against errors by setting $db->setPrintQuery(true) to true.
 ```
 $query_array = array(
     'field' => '*',
