@@ -108,7 +108,7 @@ $query_array = array(
     'order' => '`id` ASC'
 );
 $songs = $db->select($query_array);
-print_r($data);
+print_r($songs);
 
 /*---------- OUTPUT ----------*/
 
