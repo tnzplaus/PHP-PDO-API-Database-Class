@@ -22,7 +22,7 @@ class PDODb
 	public  $queryCount;
 	public  $printQuery;
 	
-	function DB($dbHost,$dbUsername,$dbPassword,$dbName)
+	function PDODb($dbHost,$dbUsername,$dbPassword,$dbName)
 	{
 		$this->dbHost = $dbHost;
 		$this->dbUsername = $dbUsername;
