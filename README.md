@@ -34,9 +34,10 @@ Note that the method $db->insert() returns the Id of the last inserted query and
 Insert multiple datasets at once
 ```
 $bind = array();
+$i = 0;
 foreach($_POST['country'] as $countryId){
-    $bind += array("cityId".$countryId => $cityId);
-    $bind += array("countryId".$countryId => $countryId);
+    $bind += array("cityId".$i => $cityId);
+    $bind += array("countryId".$i => $countryId);
     $i++;
 }
 $query_array = array(
